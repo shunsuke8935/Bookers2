@@ -1,0 +1,62 @@
+<% if flash[:notice] %>
+<div class="flash">
+	<%= flash[:notice] %>
+</div>
+<% end %>
+
+<div class="container bg-defalt">
+	<div class="row">
+		<div class="col-lg-3" style="background-color: white;">
+			<h3>User info</h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>image</th>
+						<th><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpeg", size:"100x100" %></th>
+						<% if @user.id == current_user.id %>
+					</tr>
+					<% end %>
+					</tr>
+					<tr>
+						<th>name</th>
+						<th><%= @user.name %></th>
+					</tr>
+					<tr>
+						<th>introduction</th>
+						<th><%= @user.introduction %></th>
+					</tr>
+				</thead>
+			</table>
+			<%= link_to edit_user_path(current_user.id), class:"edit_user_#{current_user.id}" do %>
+			<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button><% end %>
+			<h3>New books</h3>
+			<%= form_for(@books) do |f| %>
+
+			<h4>title</h4>
+			<%= f.text_field :title class:"book_title" %>
+			<h4>opinion</h4>
+			<%= f.text_area :option, class:"book_body" %>
+			<%= f.submit '投稿' %>
+			<% end %>
+		</div>
+		<div class="col-lg-9">
+	<table class="table">
+		<h3>Book detaile</h3>
+	<thead>
+	</thead>
+	<tbody>
+		<tr>
+			<th><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpeg", size:"100x100" %>
+			</th>
+			<th><%= @book.title %></th>
+			<th><%= @book.option %></th>
+			<% if @book.user_id == current_user.id %>
+			<th><%= link_to "編集", edit_book_path(@book), class:"edit_book_#{@book.id}" %></th>
+			<th><%= link_to "削除", destroy_book_path(@book), class:"destroy_book_#{@book.id}", method: :'delete' %></th>
+			<% end %>
+		</tr>
+	</tbody>
+    </table>
+        </div>
+    </div>
+</div>
