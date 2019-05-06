@@ -33,7 +33,7 @@
 			<%= form_for(@books) do |f| %>
 
 			<h4>title</h4>
-			<%= f.text_field :title class:"book_title" %>
+			<%= f.text_field :title, class:"book_title" %>
 			<h4>opinion</h4>
 			<%= f.text_area :option, class:"book_body" %>
 			<%= f.submit '投稿' %>
