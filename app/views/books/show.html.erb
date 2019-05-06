@@ -11,19 +11,19 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>image</th>
-						<th><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpeg", size:"100x100" %></th>
+						<td>image</td>
+						<td><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpeg", size:"100x100" %></td>
 						<% if @user.id == current_user.id %>
-					</tr>
+					</td>
 					<% end %>
 					</tr>
 					<tr>
-						<th>name</th>
-						<th><%= @user.name %></th>
+						<td>name</td>
+						<td><%= @user.name %></td>
 					</tr>
 					<tr>
-						<th>introduction</th>
-						<th><%= @user.introduction %></th>
+						<td>introduction</td>
+						<td><%= @user.introduction %></td>
 					</tr>
 				</thead>
 			</table>
@@ -46,13 +46,13 @@
 	</thead>
 	<tbody>
 		<tr>
-			<th><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpeg", size:"100x100" %>
-			</th>
-			<th><%= @book.title %></th>
-			<th><%= @book.option %></th>
+			<td><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpeg", size:"100x100" %>
+			</td>
+			<td><%= @book.title %></td>
+			<td><%= @book.option %></td>
 			<% if @book.user_id == current_user.id %>
-			<th><%= link_to "編集", edit_book_path(@book), class:"edit_book_#{@book.id}" %></th>
-			<th><%= link_to "削除", destroy_book_path(@book), class:"destroy_book_#{@book.id}", method: :'delete' %></th>
+			<td><%= link_to "編集", edit_book_path(@book), class:"edit_book_#{@book.id}" %></td>
+			<td><%= link_to "削除", destroy_book_path(@book), class:"destroy_book_#{@book.id}", method: :'delete' %></td>
 			<% end %>
 		</tr>
 	</tbody>
