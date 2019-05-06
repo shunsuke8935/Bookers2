@@ -5,18 +5,18 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>image</th>
-						<th><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpeg", size:"100x100" %></th>
+						<td>image</td>
+						<td><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpeg", size:"100x100" %></td>
 						<% if @user.id == current_user.id %>
 					</tr>
 					<% end %>
 					<tr>
-						<th>name</th>
-						<th><%= @user.name %></th>
+						<td>name</td>
+						<td><%= @user.name %></td>
 					</tr>
 					<tr>
-						<th>introduction</th>
-						<th><%= @user.introduction %></th>
+						<td>introduction</td>
+						<td><%= @user.introduction %></td>
 					</tr>
 				</thead>
 			</table>
@@ -37,17 +37,17 @@
 	<table class="table">
 	<thead>
 		<tr>
-			<th>image</th>
-			<th>name</th>
-			<th></th>
+			<td>image</td>
+			<td>name</td>
+			<td></td>
 		</tr>
 	</thead>
 	<tbody>
 		<% @users.each do |user| %>
 		<tr>
-			<th><%= attachment_image_tag user, :image, format: 'jpeg', fallback: "no_image.jpeg", size:"100x100" %></th>
-			<th><%= user.name %></th>
-			<th><%= link_to "show", user_path(user.id), class:"user_#{user.id}" %></th>
+			<td><%= attachment_image_tag user, :image, format: 'jpeg', fallback: "no_image.jpeg", size:"100x100" %></td>
+			<td><%= user.name %></td>
+			<td><%= link_to "show", user_path(user.id), class:"user_#{@user.id}" %></td>
 		</tr>
 		<% end %>
 			</tbody>
