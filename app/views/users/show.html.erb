@@ -27,15 +27,15 @@
 					</tr>
 				</thead>
 			</table>
-			<%= link_to edit_user_path(current_user.id), class:"edit_user_#{current_user.id}" do %>
+			<%= link_to edit_user_path(current_user.id), class: "edit_user_#{current_user.id}" do %>
 			<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button><% end %>
 			<h3>New books</h3>
 			<%= form_for(@book) do |f| %>
 
 			<h4>title</h4>
-			<%= f.text_field :title, class:"book_title" %>
+			<%= f.text_field :title, class: "book_title" %>
 			<h4>opinion</h4>
-			<%= f.text_area :option, class:"book_body" %>
+			<%= f.text_area :option, class: "book_body" %>
 			<%= f.submit '投稿' %>
 			<% end %>
 		</div>
@@ -53,7 +53,7 @@
 		<tr>
 			<th><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpeg", size:"100x100" %>
 			</th>
-			<th><%= link_to book.title, book_path(book.id), class:"book_#{book.id}" %></th>
+			<th><%= link_to book.title, book_path(book.id), class: "book_#{book.id}" %></th>
 			<th><%= book.option %></th>
 		</tr>
 		<% end %>
